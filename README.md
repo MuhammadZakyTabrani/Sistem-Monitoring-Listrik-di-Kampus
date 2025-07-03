@@ -1,54 +1,83 @@
-
 # ELECON - Sistem Monitoring Listrik Kampus
 
 <div align="center">
 
 ![Flutter Version](https://img.shields.io/badge/Flutter-3.0+-blue.svg)
 ![Dart Version](https://img.shields.io/badge/Dart-3.0+-blue.svg)
+![Firebase](https://img.shields.io/badge/Firebase-9.0+-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 </div>
 
 <p align="center">
-  <img src="assets/icon_logo.png" alt="ELECON Logo" width="200"/>
+ <img src="assets/icon_logo.png" alt="ELECON Logo" width="150"/>
 </p>
 
-## 📱 Overview
+<p align="center">
+ <strong>Sistem Monitoring Konsumsi Listrik Kampus Real-Time</strong>
+</p>
 
-ELECON adalah aplikasi monitoring konsumsi listrik kampus berbasis Flutter yang memungkinkan:
-- 📊 Pemantauan konsumsi listrik secara real-time
-- 📈 Analisis tren penggunaan listrik
-- 🔔 Notifikasi penggunaan berlebih
-- 📱 Antarmuka yang modern dan responsif
+## 📱 Tentang ELECON
 
-## 🎯 Fitur Utama
+ELECON adalah aplikasi mobile monitoring konsumsi listrik kampus yang dibangun menggunakan Flutter. Aplikasi ini memungkinkan pengelola fasilitas kampus untuk memantau, menganalisis, dan mengoptimalkan penggunaan energi listrik secara efisien dan berkelanjutan.
 
-- **Monitoring Real-Time:** Lihat konsumsi listrik terkini setiap ruangan.
-- **Statistik Konsumsi:** Grafik perbandingan konsumsi listrik bulanan.
-- **Notifikasi Otomatis:** Peringatan jika konsumsi melebihi batas.
-- **Integrasi Firebase:** Penyimpanan dan pengambilan data dengan Firestore.
-- **Visualisasi Data:** Grafik interaktif untuk analisis tren konsumsi listrik.
-- **QR Code Scanner:** Kelola status alat listrik melalui pemindaian QR code.
+### 🎯 Tujuan Utama
+- Meningkatkan efisiensi energi di lingkungan kampus
+- Mengurangi biaya operasional listrik
+- Mendukung program green campus dan keberlanjutan
+- Memberikan visibilitas penuh terhadap konsumsi energi
 
-## 🛠️ Teknologi yang Digunakan
+## ✨ Fitur Unggulan
 
-### Core
-- **Flutter SDK** - Framework UI cross-platform
-- **Dart** - Bahasa pemrograman modern dan powerful
-- **Firebase** - Backend dan database realtime
+### 📊 Monitoring Real-Time
+- Pantau konsumsi listrik setiap ruangan secara langsung
+- Dashboard interaktif dengan update data real-time
+- Indikator visual status penggunaan energi
 
-### State Management & Services
-- **Provider** - Manajemen state yang ringan dan efisien
-- **Firebase Firestore** - Database NoSQL untuk data realtime
-- **Firebase Auth** - Autentikasi pengguna
-- **Connectivity Plus** - Deteksi konektivitas internet
+### 📈 Analisis & Statistik
+- Grafik tren konsumsi listrik harian, mingguan, dan bulanan
+- Perbandingan konsumsi antar ruangan dan periode
+- Laporan konsumsi energi yang dapat diekspor ke PDF
 
-### UI/UX
-- **Material Design 3** - Design system modern dari Google
-- **Custom Widgets** - Komponen UI yang reusable
-- **Charts** - Visualisasi data interaktif
-- **QR Scanner** - Pemindaian kode QR untuk manajemen perangkat
+### 🔔 Sistem Notifikasi
+- Peringatan otomatis jika konsumsi melebihi batas normal
+- Notifikasi push untuk anomali penggunaan listrik
+- Alert pemeliharaan peralatan listrik
+
+### 🏢 Manajemen Perangkat
+- QR Code scanner untuk identifikasi peralatan listrik
+- Manajemen status ON/OFF perangkat
+- Tracking kondisi dan maintenance peralatan
+
+### 📱 Antarmuka Modern
+- Material Design 3 dengan UI yang intuitif
+- Responsive design untuk berbagai ukuran layar
+- Dark mode dan light mode support
+
+## 🛠️ Stack Teknologi
+
+### Frontend
+- **Flutter 3.0+** - Cross-platform UI framework
+- **Dart 3.0+** - Modern programming language
+- **Material Design 3** - Google's design system
+
+### Backend & Database
+- **Firebase Firestore** - NoSQL real-time database
+- **Firebase Authentication** - User management
+- **Firebase Cloud Functions** - Serverless backend logic
+
+### State Management & Architecture
+- **Provider** - Lightweight state management
+- **MVVM Architecture** - Clean code architecture
+- **Dependency Injection** - Modular and testable code
+
+### Libraries & Packages
+- **fl_chart** - Interactive charts and graphs
+- **qr_code_scanner** - QR code scanning functionality
+- **connectivity_plus** - Network connectivity detection
+- **pdf** - PDF report generation
+- **firebase_messaging** - Push notifications
 
 ## 📁 Struktur Proyek
 
@@ -78,24 +107,85 @@ lib/
     └── ...
 ```
 
-## 📝 Lisensi
+## 📊 Database Schema
 
-Didistribusikan di bawah Lisensi MIT. Lihat [`LICENSE`](LICENSE) untuk informasi lebih lanjut.
+### Collections Firestore
 
-## 📧 Kontak
+```javascript
+// Collection: rooms
+{
+  id: "room_001",
+  name: "Ruang Kuliah A1",
+  building: "Gedung A",
+  floor: 1,
+  capacity: 50,
+  devices: ["device_001", "device_002"]
+}
 
-Muhammad Zaky Tabrani - [https://www.instagram.com/zaktabrann](https://www.instagram.com/zaktabrann) - zakitabrani1004@gmail.com
+// Collection: devices
+{
+  id: "device_001",
+  name: "AC Split 1.5 PK",
+  type: "air_conditioner",
+  room_id: "room_001",
+  power_rating: 1500,
+  status: "on",
+  last_updated: timestamp
+}
 
-Project Link: [https://github.com/MuhammadZakyTabrani/Sistem-Monitoring-Listrik-di-Kampus](https://github.com/MuhammadZakyTabrani/Sistem-Monitoring-Listrik-di-Kampus)
+// Collection: monitoring_data
+{
+  id: "monitoring_001",
+  device_id: "device_001",
+  room_id: "room_001",
+  power_consumption: 1200,
+  voltage: 220,
+  current: 5.45,
+  timestamp: timestamp
+}
+```
+
+## 📈 Roadmap
+
+- [x] Monitoring real-time konsumsi listrik
+- [x] Sistem notifikasi dan alert
+- [x] QR code scanner untuk perangkat
+- [x] Export laporan ke PDF
+- [ ] Machine learning untuk prediksi konsumsi
+- [ ] Integrasi dengan IoT sensors
+- [ ] Multi-language support
+- [ ] Web dashboard admin
+- [ ] API REST untuk integrasi pihak ketiga
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+
+## 👥 Tim Pengembang
+
+- **Muhammad Zaky Tabrani** - *Lead Developer* - [@MuhammadZakyTabrani](https://github.com/MuhammadZakyTabrani)
+
+## 📞 Kontak & Dukungan
+
+- **Email:** zakitabrani1004@gmail.com
+- **Instagram:** [@zaktabrann](https://www.instagram.com/zaktabrann)
+- **Project Link:** [GitHub Repository](https://github.com/MuhammadZakyTabrani/Sistem-Monitoring-Listrik-di-Kampus)
 
 ## 🙏 Acknowledgments
 
-* [Flutter](https://flutter.dev)
-* [Firebase](https://firebase.google.com)
-* [Provider](https://pub.dev/packages/provider)
-* [fl_chart](https://pub.dev/packages/fl_chart)
-* [qr_code_scanner](https://pub.dev/packages/qr_code_scanner)
+- [Flutter Team](https://flutter.dev) - Amazing cross-platform framework
+- [Firebase](https://firebase.google.com) - Comprehensive app development platform
+- [Provider Package](https://pub.dev/packages/provider) - State management solution
+- [FL Chart](https://pub.dev/packages/fl_chart) - Beautiful chart library
+- [QR Code Scanner](https://pub.dev/packages/qr_code_scanner) - QR scanning functionality
+- [Material Design](https://material.io/) - Design system and components
 
 ---
 
-> 💻 Dibuat dengan ❤️ untuk tugas besar Mobile Programming
+<div align="center">
+
+**💻 Dibuat dengan ❤️ untuk Tugas Besar Mobile Programming**
+
+*Mendukung Green Campus Initiative & Sustainable Energy Management*
+
+</div>
