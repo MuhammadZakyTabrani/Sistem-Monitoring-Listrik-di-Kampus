@@ -22,14 +22,6 @@ ELECON adalah aplikasi monitoring konsumsi listrik kampus berbasis Flutter yang 
 - 🔔 Notifikasi penggunaan berlebih
 - 📱 Antarmuka yang modern dan responsif
 
-## ✨ Screenshots
-
-<p align="center">
-  <img src="screenshots/dashboard.png" width="200" alt="Dashboard"/>
-  <img src="screenshots/statistics.png" width="200" alt="Statistics"/>
-  <img src="screenshots/notifications.png" width="200" alt="Notifications"/>
-</p>
-
 ## 🎯 Fitur Utama
 
 - **Monitoring Real-Time:** Lihat konsumsi listrik terkini setiap ruangan.
