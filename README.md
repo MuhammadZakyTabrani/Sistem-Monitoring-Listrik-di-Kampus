@@ -34,77 +34,91 @@ ELECON adalah aplikasi mobile monitoring konsumsi listrik kampus yang dibangun m
 - Pantau konsumsi listrik setiap ruangan secara langsung
 - Dashboard interaktif dengan update data real-time
 - Indikator visual status penggunaan energi
+- Live indicator untuk status koneksi
 
 ### 📈 Analisis & Statistik
 - Grafik tren konsumsi listrik harian, mingguan, dan bulanan
 - Perbandingan konsumsi antar ruangan dan periode
 - Laporan konsumsi energi yang dapat diekspor ke PDF
+- Statistik efisiensi energi per ruangan
 
 ### 🔔 Sistem Notifikasi
 - Peringatan otomatis jika konsumsi melebihi batas normal
 - Notifikasi push untuk anomali penggunaan listrik
 - Alert pemeliharaan peralatan listrik
+- Summary notifikasi yang belum dibaca
 
 ### 🏢 Manajemen Perangkat
 - QR Code scanner untuk identifikasi peralatan listrik
-- Manajemen status ON/OFF perangkat
+- Manajemen status ON/OFF perangkat secara remote
 - Tracking kondisi dan maintenance peralatan
+- Detail konsumsi per alat elektronik
+
+### 🎯 Sistem Rekomendasi
+- Rekomendasi penghematan energi berdasarkan pola konsumsi
+- Saran optimasi penggunaan peralatan listrik
+- Tips efisiensi energi yang dapat diterapkan
 
 ### 📱 Antarmuka Modern
 - Material Design 3 dengan UI yang intuitif
 - Responsive design untuk berbagai ukuran layar
-- Dark mode dan light mode support
+- Interface yang user-friendly dengan navigasi bottom tab
 
 ## 🛠️ Stack Teknologi
 
-### Frontend
+### Core Technologies
 - **Flutter 3.0+** - Cross-platform UI framework
 - **Dart 3.0+** - Modern programming language
 - **Material Design 3** - Google's design system
 
 ### Backend & Database
 - **Firebase Firestore** - NoSQL real-time database
-- **Firebase Authentication** - User management
-- **Firebase Cloud Functions** - Serverless backend logic
+- **Firebase Core** - Firebase SDK untuk Flutter
 
 ### State Management & Architecture
 - **Provider** - Lightweight state management
 - **MVVM Architecture** - Clean code architecture
-- **Dependency Injection** - Modular and testable code
 
 ### Libraries & Packages
 - **fl_chart** - Interactive charts and graphs
-- **qr_code_scanner** - QR code scanning functionality
+- **mobile_scanner** - QR code scanning functionality
 - **connectivity_plus** - Network connectivity detection
 - **pdf** - PDF report generation
-- **firebase_messaging** - Push notifications
+- **intl** - Internationalization dan formatting
+- **flutter_localizations** - Localization support
 
 ## 📁 Struktur Proyek
 
 ```
 lib/
-├── main.dart                 # Entry point aplikasi
-├── models/                   # Model data
-│   ├── alat_model.dart
-│   ├── monitoring_data.dart
-│   └── ruang_model.dart
-├── providers/               # State management
-│   └── monitoring_provider.dart
-├── screens/                 # UI screens
-│   ├── monitoring_screen.dart
-│   ├── statistik_screen.dart
-│   └── ...
-├── services/               # Backend services
-│   ├── firestore_service.dart
-│   └── pdf_export_service.dart
-├── theme/                  # Styling
-│   └── colors.dart
-├── utils/                  # Helper functions
-│   └── utils.dart
-└── widgets/               # Reusable components
-    ├── alat_card.dart
-    ├── bar_chart_widget.dart
-    └── ...
+├── main.dart                      # Entry point aplikasi
+├── models/                        # Model data
+│   ├── alat_model.dart           # Model untuk perangkat listrik
+│   ├── monitoring_data.dart      # Model data monitoring
+│   ├── notifikasi_model.dart     # Model notifikasi
+│   └── ruang_model.dart          # Model ruangan
+├── providers/                     # State management
+│   └── monitoring_provider.dart  # Provider utama untuk monitoring
+├── screens/                       # UI screens
+│   ├── bottom_nav_screen.dart    # Bottom navigation
+│   ├── monitoring_screen.dart    # Dashboard monitoring utama
+│   ├── statistik_screen.dart     # Halaman statistik dan grafik
+│   ├── notifikasi_screen.dart    # Halaman notifikasi
+│   ├── rekomendasi_screen.dart   # Halaman rekomendasi
+│   ├── room_detail_screen.dart   # Detail ruangan
+│   ├── qr_scanner_screen.dart    # QR scanner
+│   └── splash_screen.dart        # Splash screen
+├── services/                      # Backend services
+│   ├── firestore_service.dart    # Service Firebase Firestore
+│   └── pdf_export_service.dart   # Service export PDF
+├── theme/                         # Styling dan tema
+│   └── colors.dart               # Definisi warna aplikasi
+├── utils/                         # Helper functions
+│   └── utils.dart                # Utility functions
+└── widgets/                       # Reusable components
+    ├── alat_card.dart            # Card untuk menampilkan alat
+    ├── bar_chart_widget.dart     # Widget chart
+    └── metric_card.dart          # Card untuk metric
 ```
 
 ## 📊 Database Schema
@@ -163,21 +177,49 @@ lib/
 }
 ```
 
+## 📖 Cara Penggunaan
+
+1. **Dashboard Monitoring**
+   - Lihat konsumsi listrik real-time semua ruangan
+   - Monitor status ON/OFF perangkat
+   - Cek summary total konsumsi kampus
+
+2. **Analisis Statistik**
+   - Analisis tren konsumsi bulanan
+   - Bandingkan efisiensi antar ruangan
+   - Export laporan ke PDF
+
+3. **QR Scanner**
+   - Scan QR code pada perangkat listrik
+   - Toggle status ON/OFF perangkat
+   - Lihat detail konsumsi per alat
+
+4. **Notifikasi**
+   - Terima alert konsumsi berlebih
+   - Monitor peringatan sistem
+   - Tandai notifikasi sebagai dibaca
+
+5. **Rekomendasi**
+   - Dapatkan saran penghematan energi
+   - Tips optimasi penggunaan listrik
+   - Rekomendasi berdasarkan pola konsumsi
+
 ## 📈 Roadmap
 
 - [x] Monitoring real-time konsumsi listrik
 - [x] Sistem notifikasi dan alert
 - [x] QR code scanner untuk perangkat
 - [x] Export laporan ke PDF
+- [x] Sistem rekomendasi penghematan
 - [ ] Machine learning untuk prediksi konsumsi
 - [ ] Integrasi dengan IoT sensors
-- [ ] Multi-language support
+- [ ] Multi-language support (English/Indonesian)
 - [ ] Web dashboard admin
 - [ ] API REST untuk integrasi pihak ketiga
 
 ## 📄 Lisensi
 
-Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detail lengkap.
 
 ## 👥 Tim Pengembang
 
@@ -195,7 +237,7 @@ Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) unt
 - [Firebase](https://firebase.google.com) - Comprehensive app development platform
 - [Provider Package](https://pub.dev/packages/provider) - State management solution
 - [FL Chart](https://pub.dev/packages/fl_chart) - Beautiful chart library
-- [QR Code Scanner](https://pub.dev/packages/qr_code_scanner) - QR scanning functionality
+- [Mobile Scanner](https://pub.dev/packages/mobile_scanner) - QR scanning functionality
 - [Material Design](https://material.io/) - Design system and components
 
 ---
@@ -205,5 +247,8 @@ Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) unt
 **💻 Dibuat dengan ❤️ untuk Tugas Besar Mobile Programming**
 
 *Mendukung Green Campus Initiative & Sustainable Energy Management*
+
+![Made with Flutter](https://img.shields.io/badge/Made%20with-Flutter-blue?logo=flutter)
+![Powered by Firebase](https://img.shields.io/badge/Powered%20by-Firebase-orange?logo=firebase)
 
 </div>
