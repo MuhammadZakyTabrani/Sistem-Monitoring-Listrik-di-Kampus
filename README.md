@@ -111,37 +111,55 @@ lib/
 
 ### Collections Firestore
 
-```javascript
-// Collection: rooms
+```json
+// Collection: ruang_data
 {
-  id: "room_001",
-  name: "Ruang Kuliah A1",
-  building: "Gedung A",
-  floor: 1,
-  capacity: 50,
-  devices: ["device_001", "device_002"]
-}
-
-// Collection: devices
-{
-  id: "device_001",
-  name: "AC Split 1.5 PK",
-  type: "air_conditioner",
-  room_id: "room_001",
-  power_rating: 1500,
-  status: "on",
-  last_updated: timestamp
+  "id": "1",
+  "nama": "Ruang Kelas A",
+  "konsumsi": 70.0,
+  "batas": 300.0,
+  "aktif": true,
+  "lastUpdated": "2024-07-03T10:00:00.000Z",
+  "metadata": {
+    "lokasi": "Gedung A - Lantai 1",
+    "kapasitas": "40 mahasiswa",
+    "tipeSimulasi": "alwaysEfficient"
+  },
+  "daftarAlat": [
+    {
+      "id": "1a",
+      "nama": "AC Split 1PK",
+      "konsumsi": 150.0,
+      "status": false,
+      "iconName": "ac_unit"
+    },
+    {
+      "id": "1b",
+      "nama": "Lampu LED",
+      "konsumsi": 20.0,
+      "status": true,
+      "iconName": "light"
+    }
+  ]
 }
 
 // Collection: monitoring_data
 {
-  id: "monitoring_001",
-  device_id: "device_001",
-  room_id: "room_001",
-  power_consumption: 1200,
-  voltage: 220,
-  current: 5.45,
-  timestamp: timestamp
+  "id": "monitoring_001",
+  "ruangId": "1",
+  "ruang": "Ruang Kelas A",
+  "daya": 120.0,
+  "timestamp": "2024-07-03T10:00:00.000Z"
+}
+
+// Collection: notifications
+{
+  "id": "notif_001",
+  "title": "Konsumsi Listrik Melebihi Batas",
+  "message": "Ruang Kelas A telah melebihi batas konsumsi listrik.",
+  "ruangId": "1",
+  "createdAt": "2024-07-03T10:05:00.000Z",
+  "read": false
 }
 ```
 
