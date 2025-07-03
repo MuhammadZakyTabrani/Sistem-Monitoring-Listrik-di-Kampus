@@ -78,80 +78,15 @@ lib/
     └── ...
 ```
 
-## ⚙️ Instalasi & Pengembangan
-
-### Prerequisites
-
-- Flutter SDK 3.0+
-- Dart SDK 3.0+
-- Android Studio / VS Code
-- Firebase Project
-
-### Langkah Instalasi
-
-1. **Clone repository:**
-   ```sh
-   git clone https://github.com/yourusername/elecon.git
-   cd elecon
-   ```
-
-2. **Install dependencies:**
-   ```sh
-   flutter pub get
-   ```
-
-3. **Konfigurasi Firebase:**
-   - Buat project di [Firebase Console](https://console.firebase.google.com/)
-   - Download `google-services.json` untuk Android
-   - Download `GoogleService-Info.plist` untuk iOS
-   - Letakkan file konfigurasi di folder yang sesuai:
-     - Android: `android/app/google-services.json`
-     - iOS: `ios/Runner/GoogleService-Info.plist`
-
-4. **Setup Environment Variables (opsional):**
-   ```sh
-   cp .env.example .env
-   # Edit .env sesuai konfigurasi Anda
-   ```
-
-5. **Jalankan aplikasi:**
-   ```sh
-   flutter run
-   ```
-
-### Build Release
-
-1. **Android:**
-   ```sh
-   flutter build apk --release
-   # atau
-   flutter build appbundle --release
-   ```
-
-2. **iOS:**
-   ```sh
-   flutter build ips --release
-   ```
-
-## 🤝 Kontribusi
-
-Kontribusi sangat diapresiasi! Berikut beberapa cara untuk berkontribusi:
-
-1. Fork repository ini
-2. Buat branch baru (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan Anda (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buka Pull Request
-
 ## 📝 Lisensi
 
 Didistribusikan di bawah Lisensi MIT. Lihat [`LICENSE`](LICENSE) untuk informasi lebih lanjut.
 
 ## 📧 Kontak
 
-Nama Anda - [@twitter_handle](https://twitter.com/twitter_handle) - email@example.com
+Muhammad Zaky Tabrani - [https://www.instagram.com/zaktabrann](https://www.instagram.com/zaktabrann) - zakitabrani1004@gmail.com
 
-Project Link: [https://github.com/yourusername/elecon](https://github.com/yourusername/elecon)
+Project Link: [https://github.com/MuhammadZakyTabrani/Sistem-Monitoring-Listrik-di-Kampus](https://github.com/MuhammadZakyTabrani/Sistem-Monitoring-Listrik-di-Kampus)
 
 ## 🙏 Acknowledgments
 
